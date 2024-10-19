@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Traffic Management</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map { height: 600px; }
+        .highlight-route { color: red; }
+        .best-route { color: orange; weight: 6; }
+        .city-border { color: black; weight: 3; }
+    </style>
+</head>
+<body>
+    <h1>Traffic Management - Example City</h1>
+    
+    <div id="map"></div>
+    
+    <!-- User Inputs -->
+    <div>
+        <h3>Input Traffic & Speed Data</h3>
+
+        <!-- Special Route 1 -->
+        <label>Special Route 1 Speed Limit (km/h):</label>
+        <input type="number" id="specialRoute1Speed" value="60">
+        <label>Traffic Multiplier:</label>
+        <input type="number" id="specialRoute1Traffic" value="2">
+        <br>
+
+        <!-- Special Route 2 -->
+        <label>Special Route 2 Speed Limit (km/h):</label>
+        <input type="number" id="specialRoute2Speed" value="50">
+        <label>Traffic Multiplier:</label>
+        <input type="number" id="specialRoute2Traffic" value="1.5">
+        <br>
+
+        <!-- Special Route 3 -->
+        <label>Special Route 3 Speed Limit (km/h):</label>
+        <input type="number" id="specialRoute3Speed" value="70">
+        <label>Traffic Multiplier:</label>
+        <input type="number" id="specialRoute3Traffic" value="1.5">
+        <br>
+
+        <!-- Main Route -->
+        <label>Main Route Speed Limit (km/h):</label>
+        <input type="number" id="mainRouteSpeed" value="40">
+        <label>Traffic Multiplier:</label>
+        <input type="number" id="mainRouteTraffic" value="1">
+        <br>
+
+        <!-- Vehicle Type -->
+        <label>Vehicle Type:</label>
+        <select id="vehicleType">
+            <option value="normal">Normal Vehicle</option>
+            <option value="heavy">Heavy Vehicle</option>
+        </select>
+
+        <label>Source:</label>
+        <input type="text" id="source" placeholder="Enter Source (e.g., 51.505,-0.09)">
+        
+        <label>Destination:</label>
+        <input type="text" id="destination" placeholder="Enter Destination (e.g., 51.515,-0.12)">
+
+        <button onclick="calculateRoute()">Calculate Best Route</button>
+    </div>
+
+    <!-- Top Route Suggestions -->
+    <div id="route-suggestions"></div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
+
